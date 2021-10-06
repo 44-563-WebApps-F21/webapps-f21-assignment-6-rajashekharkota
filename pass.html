@@ -18,6 +18,9 @@
         </form>
 
         <p id="result">This text will be replaced </p>
+        <div class="container">
+            <img src="Jackabee.jpg" id="Jackabee" alt="Jackabee" width="200px" height="200px" onclick="newImage()">
+        </div>
 
         
 <script> 
@@ -41,6 +44,26 @@
             out.innerHTML = "Wrong:" +wrong
         }
     }
+    let usingImage = 1;
+function newImage(){
+    img = document.getElementById("Jackabee")
+    switch (usingImage) {
+        case 1:
+            img.src = "Kangaroo.jpg"
+            usingImage = 2
+            break;
+        case 2:
+            img.src = "Octopus.jpg"
+            usingImage = 3
+            break;
+        case 3:
+            img.src = "Jackabee.jpg"  
+            usingImage = 1
+            break;  
+        default:
+            break;
+    }
+}
     </script>
 
     </body>
