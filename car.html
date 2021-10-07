@@ -22,7 +22,16 @@
 
 
 <p id="result">This text will be replaced </p>
+<form >
+    <label for="form1_prop">Enter a property</label>
+    <input type ="text" id="form1_prop" name="form1_prop" value="color"> <br>
 
+    <label for="form1_value">Enter a value</label>
+    <input type ="text" id="form1_value" name="form1_value"> <br>
+
+    <input type="button" onclick="updateCar()" value="Update the car">
+
+</form>
 <script> 
 let my_car = {}
 function orderCar(){
@@ -34,6 +43,15 @@ function orderCar(){
     first? my_car["electric"] = true : my_car["electric"] = false
     second? my_car["ac"] = true : my_car["ac"] = false
     third? my_car["gps"] = true : my_car["gps"] = false
+    my_car = JSON.stringify(my_car)
+    out.innerHTML = my_car
+    my_car = JSON.parse(my_car)
+}
+function updateCar(){
+    prop = document.getElementById("form1_prop").value
+    val = document.getElementById("form1_value").value
+    out = document.getElementById("result")
+    my_car[prop] = val
     my_car = JSON.stringify(my_car)
     out.innerHTML = my_car
     my_car = JSON.parse(my_car)
