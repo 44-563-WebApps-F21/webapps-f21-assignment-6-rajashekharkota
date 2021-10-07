@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+ <head>
+     <title>Arithmetic Page</title>
+ </head>
+<body>
+
+<h2>Rajashekhar Kota computes</h2>
+
+<form>
+    <label for="form1_base">Enter a base</label>
+    <input type ="number" id="form1_base" name="form1_base" min=10 max=50 step=2 value=10> <br>
+
+    <label for="form1_exponent">Enter an exponent</label>
+    <input type ="number" id="form1_exponent" name="form1_exponent" autofocus value=2> <br>
+
+    <input type="button" onclick="powers()" value="Compute">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<form>
+    <input type="radio" id="addition" name="operations" value="plus"   
+     onclick="processRadio()">
+   <label for="addition">+</label></br>
+ 
+   <input type="radio" id="subtraction" name="operations" 
+      value="minus" onclick="processRadio()">
+   <label for="subtraction">-</label></br>
+ 
+   <input type="radio" id="multiplication" name="operations"   
+      value="times" onclick="processRadio()">
+   <label for="multiplication">*</label></br>
+ 
+   <input type="radio" id="division" name="operations"   
+      value="divide" onclick="processRadio()">
+   <label for="division">/</label>
+ </form>
+
+<p id="output">This text will be replaced </p>
+
+
+<script> 
+
+function powers(){
+    let result = ""
+    base = document.getElementById("form1_base").value
+    exp = document.getElementById("form1_exponent").value   
+    out = document.getElementById("result")
+    for(i=1;i<=exp;i++){
+        result += Math.pow(base,i) + " ";
+        out.innerHTML = "Power of bases are: " + result;
+    }
+}
+
+function processRadio(){
+    let result;
+    first = Number(document.getElementById("form1_base").value)
+    second = Number(document.getElementById("form1_exponent").value)
+    out = document.getElementById("output")
+    plus = document.getElementById("addition").checked
+    minus = document.getElementById("subtraction").checked
+    times = document.getElementById("multiplication").checked
+    divide = document.getElementById("division").checked
+    if(plus){
+        result = "Sum of "+first+" and "+second+" is "+ (first + second)
+    } else if(minus) {
+        result = "Subtraction of "+first+" and "+second+" is "+ (first - second)
+    } else if(times) {
+        result = "Product of "+first+" and "+second+" is "+ (first * second)
+    } else if(divide) {
+        result = "Division of "+first+" and "+second+" is "+ (first / second)
+    }
+    out.innerHTML = result
+}
+</script>
+
+</body>
+</html>
